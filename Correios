@@ -1,0 +1,7 @@
+import requests
+from bs4 import BeautifulSoup
+url = "http://www.buscacep.correios.com.br/sistemas/buscacep/consultaLocalidade.cfm?mostrar=1&UF=PE"
+req = requests.get(url)
+soup = BeautifulSoup(req.content, 'html.parser')
+cidade = soup.find('tr',class_="tmptabela") 
+print (cidade)  
